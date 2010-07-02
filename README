@@ -1,0 +1,53 @@
++-----------------------------+
+|   Weak Plasmoid Generator   |
++-----------------------------+
+This ruby class generates a Weak Plasmoid fractal, which is represented
+by a 2 dimensional array. Common uses for this class is for producing 
+heightmaps, skyboxes and anything which requires a smoothish noise 
+pattern.
+
++-------------+
+|   Working   |
++-------------+
+(A more detailed description of this algorithm can be found at 
+http://www.jimhi.com/content/articles/diamond_square/)
+
+This works by taking a 2 dimensional array that is a square of size 
+(2^n)-1 and then iteratively breaking that down into smaller squares 
+or diamonds, until you reach a size of 1x1 square or diamond.
+
+Each time a diamond or square is created, the random height is added by
+taking the average of the corners, and then adding a number that is
+between -range and +range, which is constrained depending on how many
+iterations you are into the fractal.
+
+The constrant is defined as:
+
+constraint = 2^(-h * (level-1))
+
+Where h is a roughness constant and defines how smooth your data is.
+
+The algorithm currently only works with sqaures of the size (2^n)-1,
+but cutting up the array will allow for any size.
+
++--------------+
+|   Benefits   |
++--------------+
+
+* Ruby doesn't do this as standard
+* You can make pretty pictures
+
++---------------------------------------+
+|   Using the Weak Plasmoid Generator   |
++---------------------------------------+
+           
+To use the Weak Plasmoid Generator can be used in the normal way for 
+Ruby classes. 
+
++-------------+
+|   Testing   |
++-------------+
+
+This is written in Ruby, so will be usable by Ruby. Use RMagick or 
+any other image generation tool of your choice if you wish.
+
