@@ -13,9 +13,6 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#require 'RMagick'
-#include Magick
-
 # Add a new method to the Integer class, for convenience
 class Integer
 
@@ -299,32 +296,13 @@ end
 #########################################################################
 
 # Create object
-wp = WeakPlasmoid.new
+#wp = WeakPlasmoid.new
 
 # Map of 2^7 by 2^7, range -128 to 128, h=0.8
-array = wp.generateTerrain(7, 128, 0.8)
+#array = wp.generateTerrain(7, 128, 0.8)
 
 ##Ascii output
 #########################################################################
 
-wp.outputArrayASCII(array, 256)
-
-## RMagick output
-#########################################################################
-
-#array = wp.normaliseArray(array, 128)
-
-#size = (2 ** 7) + 1
-#image = Image.new(size, size)
-
-#(0 ... array.length).each { |x|
-#  (0 ... array[x].length).each { |y|
-#    val = array[x][y] * (2**8)
-#    # Create greyscale image
-#    image.pixel_color(x, y, Pixel.new(val, val, val, val))
-#  }
-#}
-#image.display
-
-
+#wp.outputArrayASCII(array, 256)
 
